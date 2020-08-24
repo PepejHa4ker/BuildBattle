@@ -186,7 +186,7 @@ public class Plot {
     } catch (ReflectiveOperationException exception) {
       exception.printStackTrace();
     }
-    changeFloor(XMaterial.matchXMaterial(plugin.getConfig().getString("Default-Floor-Material-Name", "LOG").toUpperCase()).get().parseMaterial());
+    changeFloor(XMaterial.fromString(plugin.getConfig().getString("Default-Floor-Material-Name", "LOG").toUpperCase()).parseMaterial());
     cuboid.getCenter().getWorld().setBiome(cuboid.getMinPoint().getBlockX(), cuboid.getMaxPoint().getBlockZ(), plotDefaultBiome);
     BBPlotResetEvent event = new BBPlotResetEvent(arena, this);
     Bukkit.getServer().getPluginManager().callEvent(event);

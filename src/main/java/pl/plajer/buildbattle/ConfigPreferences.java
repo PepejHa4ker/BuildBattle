@@ -114,14 +114,14 @@ public class ConfigPreferences {
   private void loadBlackList() {
     for (String item : plugin.getConfig().getStringList("Blacklisted-Item-Names")) {
       try {
-        itemBlacklist.add((XMaterial.matchXMaterial(item).get().parseMaterial()));
+        itemBlacklist.add((XMaterial.fromString(item).parseMaterial()));
       } catch (IllegalArgumentException ex) {
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[BuildBattle] Invalid black listed item! " + item + " doesn't exist, are you sure it's properly named?");
       }
     }
     for (String item : plugin.getConfig().getStringList("Blacklisted-Floor-Materials")) {
       try {
-        floorBlacklist.add((XMaterial.matchXMaterial(item).get().parseMaterial()));
+        floorBlacklist.add((XMaterial.fromString(item).parseMaterial()));
       } catch (IllegalArgumentException ex) {
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "[BuildBattle] Invalid black listed material! " + item + " doesn't exist, are you sure it's properly named?");
       }

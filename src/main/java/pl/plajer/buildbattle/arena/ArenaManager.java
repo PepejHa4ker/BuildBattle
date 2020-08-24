@@ -42,7 +42,6 @@ import pl.plajer.buildbattle.arena.managers.plots.Plot;
 import pl.plajer.buildbattle.handlers.ChatManager;
 import pl.plajer.buildbattle.handlers.PermissionManager;
 import pl.plajer.buildbattle.handlers.items.SpecialItem;
-import pl.plajer.buildbattle.handlers.party.GameParty;
 import pl.plajer.buildbattle.user.User;
 import pl.plajer.buildbattle.utils.Debugger;
 import pl.plajerlair.commonsbox.minecraft.misc.MiscUtils;
@@ -84,31 +83,6 @@ public class ArenaManager {
     if (ArenaRegistry.getArena(player) != null) {
       player.sendMessage(plugin.getChatManager().getPrefix() + plugin.getChatManager().colorMessage("In-Game.Messages.Already-Playing"));
       return;
-    }
-
-    //check if player is in party and send party members to the game
-    if (plugin.getPartyHandler().isPlayerInParty(player)) {
-      GameParty party = plugin.getPartyHandler().getParty(player);
-      if (party.getLeader().equals(player)) {
-        if (arena.getMaximumPlayers() - arena.getPlayers().size() >= party.getPlayers().size()) {
-          for (Player partyPlayer : party.getPlayers()) {
-            if (partyPlayer == player) {
-              continue;
-            }
-            if (ArenaRegistry.getArena(partyPlayer) != null) {
-              if (ArenaRegistry.getArena(partyPlayer).getArenaState() == ArenaState.IN_GAME) {
-                continue;
-              }
-              leaveAttempt(partyPlayer, ArenaRegistry.getArena(partyPlayer));
-            }
-            partyPlayer.sendMessage(plugin.getChatManager().getPrefix() + plugin.getChatManager().formatMessage(arena,  plugin.getChatManager().colorMessage("In-Game.Join-As-Party-Member"), partyPlayer));
-            joinAttempt(partyPlayer, arena);
-          }
-        } else {
-          player.sendMessage(plugin.getChatManager().getPrefix() + plugin.getChatManager().formatMessage(arena,  plugin.getChatManager().colorMessage("In-Game.Messages.Lobby-Messages.Not-Enough-Space-For-Party"), player));
-          return;
-        }
-      }
     }
 
     if (!plugin.getConfigPreferences().getOption(ConfigPreferences.Option.BUNGEE_ENABLED)) {

@@ -80,7 +80,7 @@ public class ChatEvents implements Listener {
       return;
     }
     event.setCancelled(true);
-    plugin.getChatManager().broadcast(arena, plugin.getChatManager().colorMessage("In-Game.Guess-The-Build.Chat.Guessed-The-Theme").replace("%player%", event.getPlayer().getName()));
+    plugin.getChatManager().broadcast(arena, plugin.getChatManager().colorMessage("In-Game.Guess-The-Build.Chat.Guessed-The-Theme").replace("%player%", event.getPlayer().getDisplayName()));
     //todo how this works
     event.getPlayer().sendMessage(plugin.getChatManager().colorMessage("In-Game.Guess-The-Build.Plus-Points")
         .replace("%pts%", String.valueOf(gameArena.getCurrentTheme().getDifficulty().getPointsReward())));

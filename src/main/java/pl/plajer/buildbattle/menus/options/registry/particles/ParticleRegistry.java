@@ -85,8 +85,8 @@ public class ParticleRegistry {
         continue;
       }
       ParticleItem particleItem = new ParticleItem();
-      particleItem.setItemStack(new ItemBuilder(XMaterial.matchXMaterial(config
-          .getString(particle.toString() + ".material-name").toUpperCase()).get().parseItem())
+      particleItem.setItemStack(new ItemBuilder(XMaterial.fromString(config
+          .getString(particle.toString() + ".material-name").toUpperCase()).parseItem())
           .name(plugin.getChatManager().colorRawMessage(config.getString(particle.toString() + ".displayname")))
           .lore(config.getStringList(particle.toString() + ".lore")
               .stream().map(lore -> lore = plugin.getChatManager().colorRawMessage(lore)).collect(Collectors.toList()))

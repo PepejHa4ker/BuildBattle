@@ -64,7 +64,7 @@ public class FloorChangeOption {
         if (registry.getPlugin().getConfigPreferences().getFloorBlacklist().contains(material)) {
           return;
         }
-        byte materialData = XMaterial.matchXMaterial(itemStack).getData();
+        byte materialData = itemStack.getData().getData();
         arena.getPlotManager().getPlot((Player) e.getWhoClicked()).changeFloor(material, materialData);
         e.getWhoClicked().sendMessage(registry.getPlugin().getChatManager().colorMessage("Menus.Option-Menu.Items.Floor.Floor-Changed"));
         itemStack.setAmount(0);

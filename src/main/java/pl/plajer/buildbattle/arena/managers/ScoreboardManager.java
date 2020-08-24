@@ -19,17 +19,18 @@
 package pl.plajer.buildbattle.arena.managers;
 
 import me.clip.placeholderapi.PlaceholderAPI;
-import me.tigerhix.lib.scoreboard.ScoreboardLib;
-import me.tigerhix.lib.scoreboard.common.EntryBuilder;
-import me.tigerhix.lib.scoreboard.type.Entry;
-import me.tigerhix.lib.scoreboard.type.Scoreboard;
-import me.tigerhix.lib.scoreboard.type.ScoreboardHandler;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import me.tigerhix.lib.scoreboard.ScoreboardLib;
+import me.tigerhix.lib.scoreboard.common.EntryBuilder;
+import me.tigerhix.lib.scoreboard.type.Entry;
+import me.tigerhix.lib.scoreboard.type.Scoreboard;
+import me.tigerhix.lib.scoreboard.type.ScoreboardHandler;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;

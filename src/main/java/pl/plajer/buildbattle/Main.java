@@ -50,8 +50,6 @@ import pl.plajer.buildbattle.handlers.PermissionManager;
 import pl.plajer.buildbattle.handlers.PlaceholderManager;
 import pl.plajer.buildbattle.handlers.items.SpecialItemsRegistry;
 import pl.plajer.buildbattle.handlers.language.LanguageManager;
-import pl.plajer.buildbattle.handlers.party.PartyHandler;
-import pl.plajer.buildbattle.handlers.party.PartySupportInitializer;
 import pl.plajer.buildbattle.handlers.reward.RewardsFactory;
 import pl.plajer.buildbattle.handlers.setup.SetupInventoryEvents;
 import pl.plajer.buildbattle.handlers.sign.ArenaSign;
@@ -97,8 +95,7 @@ public class Main extends JavaPlugin {
   private SpecialItemsRegistry specialItemsRegistry;
   private String version;
   private boolean forceDisable = false;
-  private PartyHandler partyHandler;
-  private RewardsFactory rewardsHandler;
+    private RewardsFactory rewardsHandler;
 
   public CuboidSelector getCuboidSelector() {
     return cuboidSelector;
@@ -277,7 +274,7 @@ public class Main extends JavaPlugin {
     new VoteMenuListener(this);
     new HolidayManager(this);
     BannerMenu.init(this);
-    partyHandler = new PartySupportInitializer().initialize(this);
+
     rewardsHandler = new RewardsFactory(this);
   }
 
@@ -348,10 +345,6 @@ public class Main extends JavaPlugin {
 
   public UserManager getUserManager() {
     return userManager;
-  }
-
-  public PartyHandler getPartyHandler() {
-    return partyHandler;
   }
 
   public RewardsFactory getRewardsHandler() {
