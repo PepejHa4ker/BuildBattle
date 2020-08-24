@@ -93,8 +93,8 @@ public class CuboidSelector implements Listener {
 
   public class Selection {
 
-    private Location firstPos;
-    private Location secondPos;
+    private final Location firstPos;
+    private final Location secondPos;
 
     public Selection(Location firstPos, Location secondPos) {
       this.firstPos = firstPos;
